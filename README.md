@@ -13,4 +13,4 @@ Web application for creating flow charts
 
 
 ## Link to it
-* (https://www.fahadansar.website/fc.html)
+* https://www.fahadansar.website/fc.html
