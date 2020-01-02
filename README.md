@@ -1,5 +1,16 @@
 # FlowChart---Library
-FlowChart library for java. It has all the basic elements that is needed to make a flow chart using java.
+Web application for creating flow charts
+
+## Version : 1.0
 
 
-### Works fine just needs few optimizations including LATEX feature
+## Screenshot
+
+
+![image](https://user-images.githubusercontent.com/44476743/71696752-d3775400-2d83-11ea-8baf-99baacf9cb62.png)
+
+
+
+
+## Link to it
+* (https://www.fahadansar.website/fc.html)
