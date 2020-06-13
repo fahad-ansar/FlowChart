@@ -1,7 +1,7 @@
 # FlowChart---Library
 Web application for creating flow charts
 
-## Version : 1.0
+## Version : 2.7
 
 
 ## Screenshot
@@ -16,4 +16,4 @@ Web application for creating flow charts
 
 ## Credits
 
-* Made graphics with the help of https://konvajs.org/
+* Made graphics with the help of https://konvajs.org/ Graphics
