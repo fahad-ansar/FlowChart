@@ -7,7 +7,7 @@ Web application for creating flow charts
 ## Screenshot
 
 
-![image](https://user-images.githubusercontent.com/44476743/71696752-d3775400-2d83-11ea-8baf-99baacf9cb62.png)
+![image](https://user-images.githubusercontent.com/44476743/84562550-330a6000-ad23-11ea-84cc-dd8bc8e55ba9.png)
 
 
 ## Link to it
