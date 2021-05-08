@@ -1,4 +1,4 @@
-# FlowChart---Library
+# FlowChart : Web-App
 Web application for creating flow charts
 
 ### Special features 
