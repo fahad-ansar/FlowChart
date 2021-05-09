@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <title>FlowChart</title>
     <link rel="stylesheet" type="text/css" href="mn.css">
+
     <style>
       body {
         margin: 0;
@@ -17,11 +18,16 @@
   </head>
   <body>
     
-    <div id="container" style="background: lightgrey;" ></div>
+    <div id="container" style="background: #2e2e2e; width:1920; height:1080:" ></div>
 
     <script>
-      var width = window.innerWidth;
-      var height = 800;
+     var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var height = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
 
       var stage = new Konva.Stage({
         container: 'container',
@@ -31,36 +37,143 @@
     
       Konva.captureTouchEventsEnabled = true;
 
+     
+
 
     </script>
 
-<div id="tools">
+<div id="optBox">
 
-    <ul id="tl">
+<h1 id="optHead" style="color:black; font-size:20px; font-family:fku; margin-left:30%;">SHAPES</h1>
 
-            <li><button onclick="addrecta()">Rectangle</button><input placeholder="Text for it(short)" id="Txt" maxlength="8" size="12"></li>
+
+<div id="fg" style="background-color:black;   
+
+    height:auto; 
+    width:200px;
+     
+    transition=all 1s;
+
+    overflow-y: scroll; 
+    
+
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+
+">
+
+<div id="tools" style="transition=all 1s;">
+
+    <ul style="list-style:none; transition=all 1s;">
+
+	    <li ><button id="cL" onclick="printit()" style="padding:30px;">Print PDF</button></li>
+	    
+	    <li ><button id="cL" onclick="clearAll()" style="padding:30px;">Clear All</button></li>
+
+            <li style="padding-bottom:20px;"><button id="r" onclick="addrecta()">Rectangle</button><input placeholder="Text for it(short)" id="Txt" maxlength="8" size="12"></li>
             
-            <li><button onclick="addPointV()">Vertical Line</button><input placeholder="Size"  id="siz" type="number" max="10" min="1"></li>
-
-            <li><button onclick="addStart('Start','cyan')">Start</button></li>
+            <li style="padding-bottom:20px;"><button id="v" onclick="addPointV()">Vertical Line</button><input placeholder="Size"  id="siz" value="1" type="number" max="10" min="1"></li>
+ 
+            <li><button id="s" onclick="addStart('Start','cyan')">Start</button></li>
             
-            <li><button onclick="addStart(' End ','teal')">End</button></li>
+            <li><button id="e" onclick="addStart(' End ','teal')">End</button></li>
 
-            <li><button onclick="addCnct()">Connector</button></li>
+            <li><button id="c"onclick="addCnct()">Ball Connector</button></li>
 
-            <li><button onclick="addPrllo()">Data</button><input placeholder="Text for it(short)" id="pTxt" maxlength="8" size="12"></li>
+            <li style="padding-bottom:20px;"><button id="d" onclick="addPrllo()">Data</button><input placeholder="Text for it(short)" id="pTxt" maxlength="8" size="12"></li>
 
-            <li><button onclick="addDim()">Decision</button><input placeholder="Text for it(short)" id="dTxt" maxlength="8" size="12"></li>
-
-
+            <li style="padding-bottom:20px;"><button id="de" onclick="addDim()">Decision</button><input placeholder="Text for it(short)" id="dTxt" maxlength="8" size="12"></li>
 
 
-    </ul>
+
+	    <li style="padding-bottom:20px;"><button id="d" onclick="addSData()">Stored Data</button><input placeholder="Text for it(short)" id="sTxt" maxlength="8" size="12"></li>
+
+	    <li style="padding-bottom:20px;"><button id="d" onclick="addMInput()">Manual Input</button><input placeholder="Text for it(short)" id="mintxt" maxlength="15" size="12"></li>
+
+            <li style="padding-bottom:20px;"><button id="d" onclick="addcard()">Card</button><input placeholder="Text for it(short)" id="cardtxt" maxlength="8" size="12"></li>
+
+            <li style="padding-bottom:20px;"><button id="hl" onclick="addPointH()">Horizontal Line</button><input placeholder="Size"  id="sizh" value="1" type="number" max="10" min="1"></li>
+
+            <li style="padding-bottom:20px;"><button id="arr" onclick="addarrow()">Arrow Connector</button></li>
+
+            <li style="padding-bottom:20px;"><button id="tct" onclick="addText()">Text Box</button><input placeholder="Text for it(short)" id="txtn" maxlength="20" size="12"></li>
+
+
+    </ul>txtn
 
 </div>
-<h3 style="text-align:center; margin-bottom: auto; font-family: monospace; ">V1.0</h3>
-<h3 style="text-align:center; margin-bottom: auto; font-family: monospace; ">-YOU CAN DRAG OBJECTS </h3>
-<h3 style="text-align:center; margin-bottom: auto; font-family: monospace; ">-DOUBLE CLICK/TAP OBJECT TO DELETE IT</h3>
+
+
+
+
+
+
+</div>
+
+<div id ="bt" style=" height:30px; left:87%;" ><img id="bti" src="arr.png" height="30px;" style="padding-left:80px;"></div>
+
+<h3 style="text-align:center; color:white; margin-bottom: auto; font-family: monospace; ">V2.7</h3>
+<h3 style="text-align:center; color:white; margin-bottom: auto; font-family: monospace; ">-YOU CAN DRAG OBJECTS </h3>
+<h3 style="text-align:center; color:white; margin-bottom: auto; font-family: monospace; ">-DOUBLE CLICK/TAP OBJECT TO DELETE IT</h3>
+
+
+
+</div>
+
+
+
+
+<script>
+
+var kl = document.getElementById("tools");
+kl.style.display="block";
+
+var arr = document.getElementById("bti");
+arr.src="arrD.png";
+
+var fgg = document.getElementById("fg");
+fg.style.height="750px";
+
+document.getElementById("bt").addEventListener("click",function(){
+
+if(kl.style.display=="none"){
+kl.style.display="block";
+fg.style.height="750px";
+arr.src="arrD.png";
+}else{
+kl.style.display="none";
+fg.style.height="0px";
+arr.src="arr.png";	
+}
+
+
+});
+
+
+
+function printit(){
+
+box = document.getElementById('optBox');
+
+box.style.display = "none";
+
+window.print();
+
+box.style.display = "block";
+
+}
+
+</script>
+
+<!--
+
+-->
 
   </body>
 </html>
