@@ -9,7 +9,7 @@ Web application for creating flow charts
 * shapes as buttons
 
 ## Screenshot
-![image](https://user-images.githubusercontent.com/44476743/84562550-330a6000-ad23-11ea-84cc-dd8bc8e55ba9.png)
+![ss](https://user-images.githubusercontent.com/44476743/126856819-51350113-61e0-4891-a6a7-2782a6151abf.png)
 
 
 ## Link to it
