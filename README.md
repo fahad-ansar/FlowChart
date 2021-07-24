@@ -1,15 +1,12 @@
 # FlowChart : Web-App
 Web application for creating flow charts
 
-### Special features 
-* Export to PDF
-* Clear all with on click
 
 ## Version : 2.7
-* new symbols
+* new design
 * New Theme
-* Export to PDF
-* ToolKit dropdown
+* color option for shapes
+* shapes as buttons
 
 ## Screenshot
 ![image](https://user-images.githubusercontent.com/44476743/84562550-330a6000-ad23-11ea-84cc-dd8bc8e55ba9.png)
