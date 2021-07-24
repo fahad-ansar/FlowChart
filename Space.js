@@ -1,16 +1,212 @@
 
+
+
+//put this height width thing in a media query so it gets updated everytime
+
+var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var height = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height
+});
+    
+Konva.captureTouchEventsEnabled = true;
+
+
 function clearAll(){
-
-stage.destroyChildren();
-
-
+  stage.destroyChildren();
 }
 
-//--------------------------Adding rectangle-----------------
+function printit(){
+  window.print();
+}
 
+
+//---------------------------------------------------------------------------
+
+//-----------------------------------Connector-----------------------------
+function addCnct(){
+    
+  
+  var color = document.getElementById('cirClr').value;
+    
+  var layer = new Konva.Layer();
+  
+  
+  var circle = new Konva.Circle({
+      x: stage.width() / 2,
+      y: stage.height() / 2,
+      radius: 15,
+      fillLinearGradientStartPoint: { x: -50, y: -50 },
+      fillLinearGradientEndPoint: { x: 50, y: 50 },
+      fillLinearGradientColorStops: [0, color, 1, 'yellow'],
+      stroke: 'black',
+      strokeWidth: 0,
+      shadowColor: 'black',
+      shadowBlur: 10,
+      shadowOffset: { x: 2, y: 2 },
+      shadowOpacity: 0.2,
+      draggable: true
+  });
+  
+      
+  layer.add(circle);
+  
+  stage.add(layer);
+  
+  layer.on('mouseover', function() {
+      document.body.style.cursor = 'pointer';
+  });
+
+  layer.on('dblclick  dbltap', function(){
+    layer.destroy();
+  });
+
+  layer.on('mouseout', function() {
+      document.body.style.cursor = 'default   ';
+  });
+}
+
+//-------------------------------Vertical line--------------------------------
+function addPointV(){
+  var size = document.getElementById('siz').value;
+
+  var layer = new Konva.Layer();
+  
+  
+  var line = new Konva.Line({
+      points: [100, 80, 100, 120+(size*20)],
+      stroke: document.getElementById('vlClr').value,
+      shadowColor: 'black',
+      shadowBlur: 10,
+      shadowOffset: { x: 2, y: 2 },
+      shadowOpacity: 0.2,
+      strokeWidth: 3,
+      lineCap: 'round',
+      lineJoin: 'round',
+      draggable: true
+    });
+  
+      
+  layer.add(line);
+  
+  stage.add(layer);
+  
+  layer.on('mouseover', function() {
+      document.body.style.cursor = 'pointer';
+  });
+  layer.on('mouseout', function() {
+      document.body.style.cursor = 'default   ';
+  });
+  
+  layer.on('dblclick  dbltap', function(){
+    layer.destroy();
+  });
+}
+  
+//-------------------Horizontal line----------------------
+function addPointH(){
+  var size = document.getElementById('sizh').value;
+  var color = document.getElementById('hlClr');
+  var layer = new Konva.Layer();
+  
+
+  
+  var line = new Konva.Line({
+      points: [100, 80, 120+(size*20),80],
+      stroke: color.value,
+      strokeWidth: 3,
+      lineCap: 'round',
+      lineJoin: 'round',
+      draggable: true
+    });
+  
+    var group = new Konva.Group({
+      draggable: true
+    });
+  
+  group.add(line);
+      
+  layer.add(group);
+  
+  stage.add(layer);
+  
+  layer.on('mouseover', function() {
+      document.body.style.cursor = 'pointer';
+  });
+  layer.on('mouseout', function() {
+      document.body.style.cursor = 'default   ';
+  });
+  
+  layer.on('dblclick  dbltap', function(){
+    layer.destroy();
+  });
+}
+    
+//-------------------Text-----------------------------------
+function addText(){
+
+  var rectX = stage.width() / 2 - 50;
+  var rectY = stage.height() / 2 - 50;
+  var layer = new Konva.Layer();
+   var group = new Konva.Group({
+      draggable: true
+    });
+  
+  
+        var prlo = new Konva.Text({
+        
+          x: rectX,
+          y: rectY,
+          text:document.getElementById('txtTxt').value,
+          fontSize: 20,
+          fontFamily: 'Calibri',
+          fill: document.getElementById('txtClr').value,
+          stroke: 'black',
+          strokeWidth: 0,
+          shadowColor: 'black',
+          shadowBlur: 5,
+          shadowOffset: { x: 2, y: 2 },
+          shadowOpacity: 0.2,
+          width: 300,
+          padding: 20,
+          align: 'center'
+        });
+  
+  
+  
+  
+  group.add(prlo);
+  
+  layer.add(group);
+  
+  stage.add(layer);
+  
+  layer.on('mouseover', function() {
+      document.body.style.cursor = 'pointer';
+  });
+  layer.on('mouseout', function() {
+      document.body.style.cursor = 'default   ';
+  });
+  
+  layer.on('dblclick  dbltap', function(){
+    layer.destroy();
+  });
+  }
+  
+   
+//-------------------------- rectangle-----------------
 function addrecta(){
 
-    var text = document.getElementById('Txt').value;
+    var text = document.getElementById('rTxt').value;
+    var color = document.getElementById('rClr').value
     var layer = new Konva.Layer();
     var rectX = stage.width() / 2 - 50;
     var rectY = stage.height() / 2 - 50;
@@ -20,26 +216,36 @@ function addrecta(){
       draggable: true
     });
 
+      
+
     
       var box = new Konva.Rect({
           x: rectX,
           y: rectY,
           width: 120,
           height: 60,
-          fill: '#00D2FF',
+          fillLinearGradientStartPoint: { x: -50, y: -50 },
+          fillLinearGradientEndPoint: { x: 150, y: 50 },
+          fillLinearGradientColorStops: [0, color, 1, 'yellow'],
           stroke: 'black',
-          strokeWidth: 1
+          strokeWidth: 0,
+          shadowColor: 'black',
+          shadowBlur: 10,
+          shadowOffset: { x: 2, y: 2 },
+          shadowOpacity: 0.2,
       });
 
+      box.cornerRadius(5);
+
       var textp = new Konva.Text({
-          x: rectX,
+          x: rectX+10,
           y: rectY,
           text: text,
           fontSize: 20,
           fontFamily: 'Calibri',
-          fill: 'black',
-          padding: 18,
-          align: 'center'       
+          strokeWidth: 1,
+          fill: 'white',
+          padding: 20,      
       });
 
      
@@ -63,54 +269,17 @@ function addrecta(){
     layer.on('mouseout', function() {
       document.body.style.cursor = 'default   ';
     });
-   }
-
-
-//-------------------------------Pointerstraight--------------------------------
-
-
-function addPointV(){
-var size = document.getElementById('siz').value;
-
-var layer = new Konva.Layer();
-
-if(size>10){size=10;}
-
-var line = new Konva.Line({
-    points: [100, 80, 100, 120+(size*20)],
-    stroke: '#A9A9A9',
-    strokeWidth: 3,
-    lineCap: 'round',
-    lineJoin: 'round',
-    draggable: true
-  });
-
-    
-layer.add(line);
-
-stage.add(layer);
-
-layer.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-});
-layer.on('mouseout', function() {
-    document.body.style.cursor = 'default   ';
-});
-
-layer.on('dblclick  dbltap', function(){
-  layer.destroy();
-});
 }
 
 
+
 //-----------------------------------Start/End-----------------------------
-
-
-function addStart(text, clr){
+function addStart(){
 
 
 var layer = new Konva.Layer();
-
+var text = document.getElementById('oTxt').value;
+var color = document.getElementById('oClr').value;
 var group = new Konva.Group({
     draggable: true
   });
@@ -120,18 +289,24 @@ var oval = new Konva.Ellipse({
     y: 100,
     radiusX: 50,
     radiusY: 25,
-    fill: clr,
+    fillLinearGradientStartPoint: { x: -50, y: -50 },
+    fillLinearGradientEndPoint: { x: 150, y: 50 },
+    fillLinearGradientColorStops: [0, color, 1, 'blue'],
     stroke: 'black',
-    strokeWidth: 2
+    strokeWidth: 0,
+    shadowColor: 'black',
+    shadowBlur: 10,
+    shadowOffset: { x: 2, y: 2 },
+    shadowOpacity: 0.2,
   });
 
 var textp = new Konva.Text({
-    x: stage.width() / 2-40,
-    y: 75,
+    x: stage.width() / 2-37,
+    y: 73,
     text: text,
     fontSize: 20,
     fontFamily: 'Calibri',
-    fill: 'black',
+    fill: 'white',
     padding: 18,
     align: 'center'       
 });
@@ -156,49 +331,12 @@ layer.on('dblclick  dbltap', function(){
 }
 
 
-//-----------------------------------Connector-----------------------------
-
-
-function addCnct(){
-    
-    
-    var layer = new Konva.Layer();
-    
-    
-    var circle = new Konva.Circle({
-        x: stage.width() / 2,
-        y: stage.height() / 2,
-        radius: 15,
-        fill: 'darkgrey',
-        stroke: 'black',
-        strokeWidth:1,  
-        draggable: true
-    });
-    
-        
-    layer.add(circle);
-    
-    stage.add(layer);
-    
-    layer.on('mouseover', function() {
-        document.body.style.cursor = 'pointer';
-    });
-
-    layer.on('dblclick  dbltap', function(){
-      layer.destroy();
-    });
-
-    layer.on('mouseout', function() {
-        document.body.style.cursor = 'default   ';
-    });
-    }
-
-
 //-----------------------------------Data-----------------------------------------
-
 function addPrllo(){
 
+
   var text = document.getElementById('pTxt').value;
+  var color = document.getElementById('pClr').value;
   var layer = new Konva.Layer();
   var rectX = stage.width() / 2 - 50;
   var rectY = stage.height() / 2 - 50;
@@ -221,10 +359,17 @@ function addPrllo(){
 
         context.fillStrokeShape(shape);
       },
-      fill: 'pink',
+      fillLinearGradientStartPoint: { x: -50, y: -50 },
+      fillLinearGradientEndPoint: { x: 50, y: 50 },
+      fillLinearGradientColorStops: [0, color, 1, color],
       stroke: 'black',
-      strokeWidth: 2
+      strokeWidth: 0,
+      shadowColor: 'black',
+      shadowBlur: 10,
+      shadowOffset: { x: 2, y: 2 },
+      shadowOpacity: 0.2,
     });
+
 
     var textp = new Konva.Text({
         x: rectX,
@@ -232,7 +377,7 @@ function addPrllo(){
         text: text,
         fontSize: 20,
         fontFamily: 'Calibri',
-        fill: '#555',
+        fill: 'white',
         padding: 20,
         align: 'center'       
     });
@@ -262,11 +407,10 @@ function addPrllo(){
 
 
  //-----------------------------------Diamond-----------------------------------------
-
-
  function addDim(){
 
   var text = document.getElementById('dTxt').value;
+  var color = document.getElementById('dClr').value;
   var tr = "True"
   var fl = "False"
   var layer = new Konva.Layer();
@@ -289,20 +433,27 @@ function addPrllo(){
         context.closePath();
         context.fillStrokeShape(shape);
       },
-      fill: 'yellow',
+      fillLinearGradientStartPoint: { x: -50, y: -50 },
+      fillLinearGradientEndPoint: { x: 50, y: 50 },
+      fillLinearGradientColorStops: [0, 'red', 1, color], //not working on customs
       stroke: 'black',
-      strokeWidth: 2
+      strokeWidth: 0,
+      shadowColor: 'black',
+      shadowBlur: 10,
+      shadowOffset: { x: 2, y: 2 },
+      shadowOpacity: 0.2,
     });
 
     var textp = new Konva.Text({
-        x: rectX-45,
+        x: rectX-53,
         y: rectY+30,
         text: text,
         fontSize: 20,
         fontFamily: 'Calibri',
-        fill: 'black',
+        fill: 'white',
         padding: 20,
-        align: 'center'       
+        align: 'center',
+        alignContent: 'center',       
     });
 
     var textT = new Konva.Text({
@@ -311,7 +462,7 @@ function addPrllo(){
       text: tr,
       fontSize: 20,
       fontFamily: 'Calibri',
-      fill: '#A9A9A9',
+      fill: 'black',
       padding: 20,
       align: 'center'       
     });
@@ -322,14 +473,14 @@ function addPrllo(){
       text: fl,
       fontSize: 20,
       fontFamily: 'Calibri',
-      fill: '#A9A9A9',
+      fill: '#black',
       padding: 20,
       align: 'center'       
     });
 
     var lineR = new Konva.Line({
       points: [rectX-30, rectY+100, rectX-90, rectY+160],
-      stroke: '#A9A9A9',
+      stroke: 'black',
       strokeWidth: 3,
       lineCap: 'round',
       lineJoin: 'round',
@@ -337,7 +488,7 @@ function addPrllo(){
 
     var lineL = new Konva.Line({
       points: [rectX+30, rectY+100, rectX+90, rectY+160],
-      stroke: '#A9A9A9',
+      stroke: 'black',
       strokeWidth: 3,
       lineCap: 'round',
       lineJoin: 'round',
@@ -369,87 +520,12 @@ function addPrllo(){
   });
  }
 
-//---------------------Stored data---------------------------------
-
-function addSData(){
-
-  var text = document.getElementById('sTxt').value;
-  var layer = new Konva.Layer();
-  var rectX = stage.width() / 2 - 50;
-  var rectY = stage.height() / 2 - 50;
-
-
-  var group = new Konva.Group({
-    draggable: true
-  });
-
-  
-    var sd = new Konva.Shape({
-      sceneFunc: function(context, shape) {
-        context.beginPath();
-        context.moveTo(rectX, rectY);
-        context.lineTo(rectX+130, rectY);
-
-        context.lineTo(rectX+110, rectY+15);
-	context.lineTo(rectX+110, rectY+45);
-	context.lineTo(rectX+130, rectY+65);
-
-        context.lineTo(rectX, rectY+65);
-
-	context.lineTo(rectX-10, rectY+65);
-	context.lineTo(rectX-30, rectY+45);
-	context.lineTo(rectX-30, rectY+15);
-
-	context.lineTo(rectX, rectY);
-
-       context.closePath();
-
-       context.fillStrokeShape(shape);
-      },
-
-      fill: 'pink',
-      stroke: 'black',
-      strokeWidth: 2
-    });
-
-    var textp = new Konva.Text({
-        x: rectX,
-        y: rectY,
-        text: text,
-        fontSize: 10,
-        fontFamily: 'Calibri',
-        fill: 'black',
-        padding: 20,
-        align: 'center'       
-    });
-
-  
-
-
-  group.add(sd);
-  group.add(textp);
-    
-  layer.add(group);
-
-  stage.add(layer);
-
-  layer.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-  });
-
-  layer.on('dblclick dbltap', function(){
-    layer.destroy();
-  });
-
-  layer.on('mouseout', function() {
-    document.body.style.cursor = 'default   ';
-  });
- }
 
 //---------------------------Manual Input-----------------------------
 function addMInput(){
 
-  var text = document.getElementById('mintxt').value;
+  var text = document.getElementById('miTxt').value;
+  var color = document.getElementById('miClr').value;
   var layer = new Konva.Layer();
   var rectX = stage.width() / 2 - 50;
   var rectY = stage.height() / 2 - 50;
@@ -474,9 +550,15 @@ function addMInput(){
         
         context.fillStrokeShape(shape);
       },
-      fill: 'pink',
+      fillLinearGradientStartPoint: { x: -50, y: -50 },
+      fillLinearGradientEndPoint: { x: 50, y: 50 },
+      fillLinearGradientColorStops: [0, 'yellow', 1, color],
       stroke: 'black',
-      strokeWidth: 2
+      strokeWidth: 0,
+      shadowColor: 'black',
+      shadowBlur: 10,
+      shadowOffset: { x: 2, y: 2 },
+      shadowOpacity: 0.2,
     });
 
 
@@ -487,7 +569,7 @@ function addMInput(){
         text: text,
         fontSize: 20,
         fontFamily: 'Calibri',
-        fill: 'black',
+        fill: 'white',
         padding: 20,
         align: 'center'       
     });
@@ -515,248 +597,6 @@ function addMInput(){
   });
  }
 
-//--------------------------------CArd-----------------------
-
- function addcard(){
-
-  var text = document.getElementById('cardtxt').value;
-  var layer = new Konva.Layer();
-  var rectX = stage.width() / 2 - 50;
-  var rectY = stage.height() / 2 - 50;
-
-
-  var group = new Konva.Group({
-    draggable: true
-  });
-
-  
-    var prlo = new Konva.Shape({
-      sceneFunc: function(context, shape) {
-        context.beginPath();
-        context.moveTo(rectX, rectY);
-        context.lineTo(rectX+100, rectY);
-        context.lineTo(rectX+100, rectY+80);
-	context.lineTo(rectX-25, rectY+80);
-	context.lineTo(rectX-25, rectY+25);
-
-        context.closePath();
-    
-
-        
-        context.fillStrokeShape(shape);
-      },
-      fill: 'pink',
-      stroke: 'black',
-      strokeWidth: 2
-    });
 
 
 
-    var textp = new Konva.Text({
-        x: rectX,
-        y: rectY,
-        text: text,
-        fontSize: 20,
-        fontFamily: 'Calibri',
-        fill: 'black',
-        padding: 20,
-        align: 'center'       
-    });
-
-  
-
-
-  group.add(prlo);
-  group.add(textp);
-    
-  layer.add(group);
-
-  stage.add(layer);
-
-  layer.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-  });
-s
-  layer.on('dblclick dbltap', function(){
-    layer.destroy();
-  });
-
-  layer.on('mouseout', function() {
-    document.body.style.cursor = 'default   ';
-  });
- }
-
-//-----------------Horizontal line-------------------------------
-
-function addarrow(){
-var size = document.getElementById('sizh').value;
-
-var layer = new Konva.Layer();
-if(size>10){size=10;}
-
-var line = new Konva.Line({
-    points: [100, 80, 100+(size*20), 80],
-    stroke: '#A9A9A9',
-    strokeWidth: 3,
-    lineCap: 'round',
-    lineJoin: 'round',
-    draggable: true
-  });
-
-    
-layer.add(line);
-
-stage.add(layer);
-
-layer.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-});
-layer.on('mouseout', function() {
-    document.body.style.cursor = 'default   ';
-});
-
-layer.on('dblclick  dbltap', function(){
-  layer.destroy();
-});
-}
-
-//----------------------Arrow----------------------------
-
-function addarrow(){
-
-  var layer = new Konva.Layer();
-  var rectX = stage.width() / 2 - 50;
-  var rectY = stage.height() / 2 - 50;
-
-
-  var group = new Konva.Group({
-    draggable: true
-  });
-
-  
-    var prlo = new Konva.Arrow({
-        x: rectX,
-        y: rectY,
-        points: [0, 0, 50,0 ],
-        pointerLength: 10,
-        pointerWidth: 10,
-        fill: '#A9A9A9',
-        stroke: 'white',
-        strokeWidth: 2
-      });
-
-var line = new Konva.Line({
-    points: [rectX+50, rectY, rectX+100, rectY],
-    stroke: '#A9A9A9',
-    strokeWidth: 2,
-    lineCap: 'round',
-    lineJoin: 'round',
-    draggable: true
-  });
-
-  group.add(prlo); 
-  group.add(line);
-    
-  layer.add(group);
-
-  stage.add(layer);
-
-  layer.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-  });
-s
-  layer.on('dblclick dbltap', function(){
-    layer.destroy();
-  });
-
-  layer.on('mouseout', function() {
-    document.body.style.cursor = 'default   ';
-  });
- }
-
-//-------------------Horizontal line----------------------
-function addPointH(){
-var size = document.getElementById('siz').value;
-
-var layer = new Konva.Layer();
-
-if(size>10){size=10;}
-
-var line = new Konva.Line({
-    points: [100, 80, 100+(size*20), 80],
-    stroke: '#A9A9A9',
-    strokeWidth: 3,
-    lineCap: 'round',
-    lineJoin: 'round',
-    draggable: true
-  });
-
- var group = new Konva.Group({
-    draggable: true
-  });
-
-group.add(line);
-    
-layer.add(group);
-
-stage.add(layer);
-
-layer.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-});
-layer.on('mouseout', function() {
-    document.body.style.cursor = 'default   ';
-});
-
-layer.on('dblclick  dbltap', function(){
-  layer.destroy();
-});
-}
-
-
-//-------------------Text-----------------------------------
-
-function addText(){
-
-var rectX = stage.width() / 2 - 50;
-        var rectY = stage.height() / 2 - 50;
-var layer = new Konva.Layer();
-
- var group = new Konva.Group({
-    draggable: true
-  });
-
-
-var prlo = new Konva.Text({
-      
-        x: rectX,
-        y: rectY,
-        text:document.getElementById('txtn').value,
-        fontSize: 20,
-        fontFamily: 'Calibri',
-        fill: '#A9A9A9',
-        width: 300,
-        padding: 20,
-        align: 'center'
-      });
-
-
-group.add(prlo);
-
-layer.add(group);
-
-stage.add(layer);
-
-layer.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-});
-layer.on('mouseout', function() {
-    document.body.style.cursor = 'default   ';
-});
-
-layer.on('dblclick  dbltap', function(){
-  layer.destroy();
-});
-}
-
- 
