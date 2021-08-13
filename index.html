@@ -36,94 +36,100 @@
           <ul style="list-style:none; transition=all 1s;">
 
             <!--| connector-->
-            <li class="cage">
+            <li style="padding-bottom:20px;" class="cage">
               <button id="c"onclick="addCnct()">    
-                <img src="./assets/circle.png" width="80"/>  
+                <img src="./assets/circle.png" width="50"/>  
                 <h3>CIRCLE</h3>
               </button>
+              <input placeholder="Size"  id="sizc" value="5" type="range" max="50" min="1">
               <input type="color" id="cirClr"  value="#239101">
             </li>
           
-
+            <hr/>
             <!--| horizontal Iine-->  
             <li style="padding-bottom:20px;" class="cage">
               <button id="hl" onclick="addPointH()">    
-                <img src="./assets/hLine.png" width="80"/> 
+                <img src="./assets/hLine.png" width="50"/> 
                 <h3>VERTICAL LINE</h3>  
               </button>
               <input placeholder="Size"  id="sizh" value="5" type="range" max="50" min="1">
               <input type="color" id="hlClr"  value="black">
             </li>
 
-
+            <hr/>
             <!--| vertical Iine-->
             <li style="padding-bottom:20px;" class="cage">
               <button id="v" onclick="addPointV()">    
-                <img src="./assets/vLine.png" width="30"/>
+                <img src="./assets/vLine.png" width="20"/>
                 <h3>HORIZONTAL LINE</h3>
               </button>
               <input placeholder="Size"  id="siz" value="5" type="range" max="50" min="1">
               <input type="color" id="vlClr"  value="black">
             </li>
 
-
+            <hr/>
             <!--| text-->
             <li style="padding-bottom:20px;" class="cage">
               <button id="tct" onclick="addText()">   
-                <img src="./assets/text.png" width="50"/>   
+                <img src="./assets/text.png" width="30"/>   
                 <h3>TEXT</h3> 
               </button>
-              <input placeholder="Text for it(short)" id="txtTxt" maxlength="8" size="12">
+              <input placeholder="Text for it(short)" id="txtTxt" maxlength="8" size="8">
               <input type="color" id="txtClr"  value="black">
             </li>
 
+            <hr/>
             <!--| Rectangle-->
             <li style="padding-bottom:20px;" class="cage">
               <button id="r" onclick="addrecta()">   
-                <img src="./assets/rectangle.png" width="120"/> 
+                <img src="./assets/rectangle.png" width="80"/> 
                 <h3>RECTANGLE</h3> 
               </button>
               <input placeholder="Text for it(short)" id="rTxt" maxlength="8" size="12">
               <input type="color" id="rClr"  value="#ff4800">
             </li>
             
+            <hr/>
             <!--| Start/end-->
             <li class="cage">
               <button id="s" onclick="addStart('Start','cyan')">
-                <img src="./assets/oval.png" width="100"/>
+                <img src="./assets/oval.png" width="80"/>
                 <h3>START/END</h3> 
               </button>
-              <input placeholder="Text for it(short)" id="oTxt" maxlength="8" size="12">
+              <input placeholder="Text for it(short)" id="oTxt" maxlength="8" size="8">
               <input type="color" id="oClr"  value="#0011a8">
             </li>
 
+            <hr/>
             <!--| Parallelpgram-->
             <li style="padding-bottom:20px;" class="cage">
               <button id="d" onclick="addPrllo()">    
-                <img src="./assets/parallelo.png" width="100"/>   
+                <img src="./assets/parallelo.png" width="80"/>   
                 <h3>PARALELLOGRAM</h3> 
               </button>
-              <input placeholder="Text for it(short)" id="pTxt" maxlength="8" size="12">
+              <input placeholder="Text for it(short)" id="pTxt" maxlength="8" size="8">
               <input type="color" id="pClr"  value="#edaa00">
             </li>
 
+            <hr/>
             <!--| Diamond-->
             <li style="padding-bottom:20px;" class="cage">
              <button id="de" onclick="addDim()">    
-              <img src="./assets/diamond.png" width="100"/>  
+              <img src="./assets/diamond.png" width="80"/>  
               <h3>DIAMOND</h3>   
              </button>
-            <input placeholder="Text for it(short)" id="dTxt" maxlength="8" size="12">
+            <input placeholder="Text for it(short)" id="dTxt" maxlength="8" size="8">
             <input type="color" id="dClr"  value="#ff54ee">
             </li>
             
+            <hr/>
             <!--| Manual input-->
             <li style="padding-bottom:20px;" class="cage">
               <button id="d" onclick="addMInput()">    
-                <img src="./assets/input.png" width="80"/>    
+                <img src="./assets/input.png" width="60"/>    
                 <h3>MANUAL INPUT</h3> 
               </button>
-              <input placeholder="Text for it(short)" id="miTxt" value="Input" maxlength="8" size="12">
+              <input placeholder="Text for it(short)" id="miTxt" value="Input" maxlength="8" size="8">
               <input type="color" id="miClr"  value="#ffe054">
             </li>
 

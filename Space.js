@@ -33,7 +33,7 @@ function printit(){
 
 //-----------------------------------Connector-----------------------------
 function addCnct(){
-    
+  var size = document.getElementById('sizc').value;
   
   var color = document.getElementById('cirClr').value;
     
@@ -43,7 +43,7 @@ function addCnct(){
   var circle = new Konva.Circle({
       x: stage.width() / 2,
       y: stage.height() / 2,
-      radius: 15,
+      radius: size,
       fillLinearGradientStartPoint: { x: -50, y: -50 },
       fillLinearGradientEndPoint: { x: 50, y: 50 },
       fillLinearGradientColorStops: [0, color, 1, 'yellow'],
