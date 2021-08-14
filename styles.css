@@ -1,0 +1,280 @@
+
+/*Standards*/
+.tools h1 {
+    color: black;
+}
+
+ul,li{
+    list-style-type: none;
+}
+
+div>ul {
+    display: inline-flex;
+}
+
+h3{
+    font-size: small;
+}
+hr{
+    margin: 5px;
+}
+#toWeb{
+    width: fit-content;
+}
+
+
+
+/*Button*/
+button {
+  
+    transition: background 1s;
+    border: none;
+}
+
+button:active{
+    background: wheat;
+    color: white;
+}
+
+li>button,
+li>input {
+    text-align: center;
+   
+}
+
+
+
+
+
+/*MENUBOX*/
+
+#fg {
+    background: rgba(237, 237, 237, 0.446);
+    transition: background 0.7s;
+    flex-direction: column;
+    overflow-x: scroll  ;
+    overflow-y: hidden;
+    height: 18%;
+    width: 60%;
+
+    left: 20%;
+
+    position:fixed;
+    bottom:10;
+    justify-content: center;
+
+    z-index:100;
+    border-radius: 25px 0px 25px 0px ;
+    display: flex;  
+}
+
+#fg:hover{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cage {
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    height: 130px;
+    width: 90px;
+    margin: 1%;
+    padding-bottom:20px;
+}
+
+#actions {
+    flex-direction: column;
+    height: fit-content;
+    width:fit-content;
+
+    left: 2%;
+
+    position:fixed;
+    top:0;
+
+    z-index:100;
+    align-items: baseline;
+    display: flex;  
+}
+
+#cL{
+    border-radius: 0px 10px 0px 10px;
+    font-size: large;
+    box-shadow: inset 2px 1px 2px #000 ;
+}
+
+#cL:active{
+    background-color: rgb(0, 0, 0);
+}
+
+
+
+/* Responsiveness
+@media screen  and (min-width: 1001px) {
+    #fg {
+        background: rgba(237, 237, 237, 0.446);
+        transition: background 0.7s;
+        flex-direction: column;
+        overflow: auto  ;
+        height: 18%;
+        width: 65%;
+    
+        left: 20%;
+    
+        position:fixed;
+        bottom:0;
+        justify-content: center;
+    
+        z-index:100;
+        align-items: baseline;
+        border-radius: 25px 0px 25px 0px ;
+        display: flex;  
+    }
+    
+    #fg:hover{
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .cage *{
+        background-color: rgb(233, 233, 233);
+        border-radius: 20px;
+        align-content: center;
+        align-self: center;
+        margin: 1% 2%;
+    }
+    
+    #actions {
+        flex-direction: column;
+        height: fit-content;
+        width:fit-content;
+    
+        left: 2%;
+    
+        position:fixed;
+        top:0;
+    
+        z-index:100;
+        align-items: baseline;
+        display: flex;  
+    }
+    
+    #cL{
+        border-radius: 10%;
+        font-size: large;
+    }
+    
+    #cL:active{
+        background-color: rgb(82, 82, 82);
+    }
+} */
+
+/* 
+
+@media screen  and (max-width: 699px) and (min-width: 520px){
+    img{
+        width: 30;
+    }
+
+    #fg {
+        background: rgba(237, 237, 237, 0.446);
+        transition: background 0.7s;
+        flex-direction: column;
+        overflow: auto  ;
+        height: 18%;
+        width: 65%;
+    
+        left: 20%;
+    
+        position:fixed;
+        bottom:0;
+        justify-content: center;
+    
+        z-index:100;
+        align-items: baseline;
+        display: flex;  
+    }
+    
+    #fg:hover{
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .cage *{
+        border-radius: 2px;
+        margin: 1% 2%;
+    }
+    
+    #actions {
+        flex-direction: column;
+        height: fit-content;
+        width:fit-content;
+    
+        left: 2%;
+    
+        position:fixed;
+        top:0;
+    
+        z-index:100;
+        align-items: baseline;
+        display: flex;  
+    }
+    
+    #cL{
+        border-radius: 10%;
+        font-size: small;
+    }
+    
+    #cL:active{
+        background-color: rgb(82, 82, 82);
+    }
+} */
+
+
+
+/*SCROLLBAR*/
+#fg::-webkit-scrollbar{
+    width: 3px;
+    height: 2px;
+}
+
+#fg::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(228, 228, 228, 0);
+}
+
+#fg::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0);
+}
+
+#fg::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    -webkit-box-shadow: inset 0 0 6px rgba(169, 169, 169, 1);
+}
+
+
+#tools{
+    overflow:hidden;
+    width: fit-content ;
+    
+}
+
+input{
+    width: 80px;
+    height: 20px;
+    margin: 3px 0px;
+}
+
+
+#toggle{
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+
+/* Images */
+#c ,#hl, #v, #tct, #r, #s, #d, #de, #man{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 2px 1px black;
+    border-radius: 10px;
+    width: 100%;
+    height: 60%;
+}
