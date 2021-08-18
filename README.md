@@ -2,10 +2,11 @@
 Web application for creating flow charts
 
 
-## Version : 2.7
-* new design
+## Version : 3.4
+* Buttons to clear and go to website
 * New Theme
 * color option for shapes
+* Size options for some shapes
 * shapes as buttons
 
 ## Screenshot
