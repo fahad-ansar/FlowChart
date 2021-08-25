@@ -13,9 +13,6 @@ Web application for creating flow charts
 ![image](https://user-images.githubusercontent.com/44476743/129817375-ea2a2efa-3ecb-47b3-818b-af827268fe76.png)
 
 
-## Link to it
-https://www.fahadansar.website/FlowChart/
-
 
 ## Credits
 
